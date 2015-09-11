@@ -1,9 +1,11 @@
 from django.conf import settings
 try:
     from django.utils.html import format_html
+
 except ImportError:
     # support django < 1.5. Taken from django.utils.html
     from django.utils import six
+    from django.utils.safestring import SafeData, mark_safe
     def conditional_escape(text):
         """
         Similar to escape(), except that it doesn't operate on pre-escaped strings.
