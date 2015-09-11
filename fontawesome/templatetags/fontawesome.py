@@ -1,7 +1,10 @@
 from django import template
 from django.conf import settings
 from django.contrib.staticfiles.templatetags.staticfiles import static
-from django.utils.html import format_html
+try:
+    from django.utils.html import format_html
+except ImportError:
+    from fontawesome import format_html
 
 register = template.Library()
 
